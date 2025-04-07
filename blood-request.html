@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Blood</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Request Blood</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="donate-blood.html">Donate Blood</a>
+            <a href="blood-details.html">Blood Details</a>
+        </nav>
+    </header>
+
+    <form id="bloodRequestForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="bloodType">Blood Type:</label>
+        <select id="bloodType" required>
+            <option>A+</option>
+            <option>B+</option>
+            <option>O+</option>
+            <option>AB+</option>
+        </select>
+
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" required>
+
+        <button type="submit">Request Blood</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

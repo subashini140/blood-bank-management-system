@@ -1,0 +1,162 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: #D32F2F;
+    color: white;
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcccb;
+}
+
+/* Hero Section */
+.hero {
+    background: #fff;
+    padding: 60px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #D32F2F;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Buttons */
+.btn, .btn-secondary {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn {
+    background: #D32F2F;
+    color: white;
+}
+
+.btn:hover {
+    background: #b71c1c;
+}
+
+.btn-secondary {
+    background: #ffcccb;
+    color: #D32F2F;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #D32F2F;
+    border: 1px solid #D32F2F;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #D32F2F;
+}
+
+/* Form Styles */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: #D32F2F;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #b71c1c;
+}
+
+/* Footer */
+footer {
+    background: #D32F2F;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 30px;
+}
