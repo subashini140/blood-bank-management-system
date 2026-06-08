@@ -1,40 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate Blood</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate Blood</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background: #c62828;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 500px;
+        background: white;
+        margin: 30px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #c62828;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 10px;
+        background: #c62828;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #b71c1c;
+    }
+
+    .message {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Donate Blood</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="blood-request.html">Request Blood</a>
-            <a href="blood-details.html">Blood Details</a>
-        </nav>
-    </header>
+<header>
+    <h1>Donate Blood</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Request Blood</a>
+        <a href="#">Blood Details</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Donor Registration</h2>
 
     <form id="donateBloodForm">
-        <label for="name">Full Name:</label>
+        <label>Full Name</label>
         <input type="text" id="name" required>
 
-        <label for="bloodType">Blood Type:</label>
+        <label>Age</label>
+        <input type="number" id="age" required>
+
+        <label>Weight (kg)</label>
+        <input type="number" id="weight" required>
+
+        <label>Blood Group</label>
         <select id="bloodType" required>
-            <option>A+</option>
-            <option>B+</option>
-            <option>O+</option>
-            <option>AB+</option>
+            <option value="">Select</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option>
+            <option>AB+</option><option>AB-</option>
         </select>
 
-        <label for="contact">Contact Number:</label>
-        <input type="tel" id="contact" required>
+        <label>Contact Number</label>
+        <input type="tel" id="contact" pattern="[0-9]{10}" placeholder="10 digit number" required>
 
         <button type="submit">Donate Blood</button>
     </form>
 
-    <script src="script.js"></script>
+    <p class="message" id="message"></p>
+</div>
+
+<script>
+document.getElementById("donateBloodForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const age = parseInt(document.getElementById("age").value);
+    const weight = parseInt(document.getElementById("weight").value);
+    const bloodType = document.getElementById("bloodType").value;
+    const contact = document.getElementById("contact").value;
+    const message = document.getElementById("message");
+
+    // Eligibility check
+    if (age < 18) {
+        message.textContent = "❌ You must be at least 18 years old to donate blood.";
+        message.style.color = "red";
+        return;
+    }
+
+    if (weight < 50) {
+        message.textContent = "❌ Minimum weight should be 50 kg.";
+        message.style.color = "red";
+        return;
+    }
+
+    // Save donor data
+    const donor = { name, age, weight, bloodType, contact };
+    let donors = JSON.parse(localStorage.getItem("donors")) || [];
+    donors.push(donor);
+    localStorage.setItem("donors", JSON.stringify(donors));
+
+    message.textContent = "✅ Thank you! Your blood donation request is registered.";
+    message.style.color = "green";
+
+    document.getElementById("donateBloodForm").reset();
+});
+</script>
+
 </body>
 </html>
